@@ -95,11 +95,13 @@ class VolumePane extends Component {
             label="Week (50)"
             changed={this.pcsWeekChangedHandler}
             val={this.state.pcsWeek}
+            showDecimals
           />
           <Input
             label="Day (5)"
             changed={this.pcsDayChangedHandler}
             val={this.state.pcsDay}
+            showDecimals
           />
         </div>
         <div className={classes.inputGroup}>

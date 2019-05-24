@@ -25,12 +25,14 @@ const totals = (props) => {
           val={props.partsPerHour}
           readOnly
           disabled
+          showDecimals
         />
         <Input
           label="PP/Min"
           val={props.partsPerMin}
           readOnly
           disabled
+          showDecimals
         />
         <Input
           classes={secPerPartClasses}
@@ -38,7 +40,7 @@ const totals = (props) => {
           val={props.secPerPart}
           readOnly
           disabled
-
+          showDecimals
         />
       </div>
     );

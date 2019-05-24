@@ -27,3 +27,13 @@
 .inputField:active {
   outline: none;
 }
+
+.success {
+  color: green;
+}
+.danger {
+  color: red;
+}
+.ok {
+  color: blue;
+}

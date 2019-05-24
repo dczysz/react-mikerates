@@ -22,10 +22,14 @@ class App extends Component {
       winding: null,
       molding: null,
     },
+    pcsYear: null,
   }
 
-  updateSecPerPart = () => {
+  secPerPartTargetChangedHandler = (newTargetVal) => {
+    const newSecPerPartState = {...this.state.secPerPart};
+    newSecPerPartState.volume = newTargetVal;
 
+    this.setState({ secPerPart: newSecPerPartState });
   }
 
   render() {
@@ -38,14 +42,16 @@ class App extends Component {
           ref={el => (reactSwipeEl = el)}
         >
           <div className="swipeDiv">
-            <VolumePane />
+            <VolumePane
+              secPerPartTarget={this.state.secPerPart.volume}
+              updateSecPerPartTarget={(newTargetVal) => this.secPerPartTargetChangedHandler(newTargetVal)} />
           </div>
 
           <div className="swipeDiv">
             <RatePane
               pageName={this.state.panes[0].name}
               numOfLabel={this.state.panes[0].numOfLabel}
-              updateSecPerPart={this.updateSecPerPart}
+              secPerPartTarget={this.state.secPerPart.volume}
             />
           </div>
 
@@ -53,6 +59,7 @@ class App extends Component {
             <RatePane
               pageName={this.state.panes[1].name}
               numOfLabel={this.state.panes[1].numOfLabel}
+              secPerPartTarget={this.state.secPerPart.volume}
             />
           </div>
         </ReactSwipe>

@@ -7,10 +7,12 @@ const input = (props) => {
     <div className={classes.Input}>
       <label className={classes.label}>{props.label}</label>
       <input
-        className={classes.inputField}
+        className={[classes.inputField, classes[props.classes]].join(' ')}
         type="number"
-        value={props.input}
-        onChange={(event) => props.changed(event.target.value)}
+        value={props.val}
+        onChange={props.changed}
+        readOnly={props.readOnly}
+        disabled={props.disabled}
       ></input>
     </div>
   );

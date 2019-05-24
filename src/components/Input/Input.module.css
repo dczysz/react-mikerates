@@ -28,6 +28,10 @@
   outline: none;
 }
 
+.inputField:disabled {
+  pointer-events: none;
+}
+
 .success {
   color: green;
   border-color: green;

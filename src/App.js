@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactSwipe from 'react-swipe';
 
 import './App.css';
-import RatePane from './containers/RatePane/RatePane';
 import VolumePane from './containers/VolumePane/VolumePane';
+import RatePane from './containers/RatePane/RatePane';
 import Target from './components/Target/Target';
 
 class App extends Component {
@@ -38,10 +38,29 @@ class App extends Component {
   }
 
   render() {
-    let reactSwipeEl;
-    //! ReactSwipe must have divs as children, then components
+    let reactSwipeEl; //! ReactSwipe must have divs as children, then components
+
+    const ratePanes = this.state.panes.map((pane, index) => {
+      return (
+        <div 
+          className="swipeDiv"
+          key={pane.name + index}>
+          <RatePane
+            pageName={pane.name}
+            numOfLabel={pane.numOfLabel}
+            secPerPartTarget={this.state.secPerPart[pane.name]}
+          />
+        </div>
+      );
+    });
+
     return (
       <div className="App">
+        <Target
+          pcsYear={this.state.pcsYear}
+          target={this.state.secPerPart.volume}
+        />
+
         <ReactSwipe
           swipeOptions={{ continuous: false }}
           ref={el => (reactSwipeEl = el)}
@@ -53,27 +72,9 @@ class App extends Component {
               updatePcsYear={(newPcsYearVal) => this.pcsYearChangedHandler(newPcsYearVal)} />
           </div>
 
-          <div className="swipeDiv">
-            <RatePane
-              pageName={this.state.panes[0].name}
-              numOfLabel={this.state.panes[0].numOfLabel}
-              secPerPartTarget={this.state.secPerPart.volume}
-            />
-          </div>
+          {ratePanes}
 
-          <div className="swipeDiv">
-            <RatePane
-              pageName={this.state.panes[1].name}
-              numOfLabel={this.state.panes[1].numOfLabel}
-              secPerPartTarget={this.state.secPerPart.volume}
-            />
-          </div>
         </ReactSwipe>
-        
-        <Target
-          pcsYear={this.state.pcsYear}
-          target={this.state.secPerPart.volume}
-        />
       </div>
     );
   }

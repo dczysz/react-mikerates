@@ -1,32 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import classes from './Input.module.css';
 
-const input = (props) => {
+class Input extends Component {
 
-  // TODO: Make this better, wonky in different ways on ff/chrome
-  // Dont add decimals to integer inputs
-  let value = props.val;
-
-  if (value === 0 || value === '') {
-    value = '';
-  } else if (props.showDecimals) {
-    value = Number(props.val).toFixed(2);
+  state = {
+    focused: false,
   }
 
-  return (
-    <div className={classes.Input}>
-      <label className={classes.label}>{props.label}</label>
-      <input
-        className={[classes.inputField, classes[props.classes]].join(' ')}
-        type="number"
-        value={value}
-        onChange={props.changed}
-        readOnly={props.readOnly}
-        disabled={props.disabled}
-      ></input>
-    </div>
-  );
+  handleFocus = (event, focused) => {
+    this.setState({ focused: focused });
+    if (focused) {
+      //TODO: select text
+    }
+  }
+
+  render() {
+    // Dont add decimals to integer inputs
+    let value = this.props.val;
+
+    if (value === 0 || value === '') {
+      value = '';
+    } else if (this.props.showDecimals) {
+      value = Number(this.props.val);
+      // Only set toFixed if not focused
+      if (!this.state.focused) {
+        value = value.toFixed(2);
+      }
+    }
+
+    return (
+      <div className={classes.Input}>
+        <label className={classes.label}>{this.props.label}</label>
+        <input
+          className={[classes.inputField, classes[this.props.classes]].join(' ')}
+          type="number"
+          value={value}
+          onChange={this.props.changed}
+          readOnly={this.props.readOnly}
+          disabled={this.props.disabled}
+          onFocus={(event) => this.handleFocus(event, true)}
+          onBlur={(event) => this.handleFocus(event, false)}
+        ></input>
+      </div>
+    );
+  }
 };
  
-export default input;
+export default Input;

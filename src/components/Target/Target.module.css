@@ -1,0 +1,15 @@
+.Target {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  color: white;
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+}
+
+.Target p {
+  margin: 1rem 2rem;
+}

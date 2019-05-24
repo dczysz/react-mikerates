@@ -1,55 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Input from '../../components/Input/Input';
 import classes from './Totals.module.css';
 
-class Totals extends Component {
-  state = {
-    
-  }
+const totals = (props) => {
+  const secPerPartTarget = props.secPerPartTarget;
+  const secPerPartClassesArr = [];
 
-  render() {
-    // Condidtionally apply style to secPerPart input depending on target
-    const secPerPartTarget = this.props.secPerPartTarget;
-    const secPerPartClassesArr = [];
-
-    if (this.props.secPerPart < secPerPartTarget) 
+  if (props.secPerPart !== '') {
+    if (props.secPerPart < secPerPartTarget) 
       secPerPartClassesArr.push('success');
-    else if (this.props.secPerPart > secPerPartTarget) 
+    else if (props.secPerPart > secPerPartTarget) 
       secPerPartClassesArr.push('danger');
     else
       secPerPartClassesArr.push('ok');
-    
-      const secPerPartClasses = secPerPartClassesArr.join(' ');
+  }
+  const secPerPartClasses = secPerPartClassesArr.join(' ');
 
+    // Condidtionally apply style to secPerPart input depending on target
     return (
       <div className={classes.Totals}>
         <Input
           label="PP/Hour"
-          val={this.props.partsPerHour}
+          val={props.partsPerHour}
           readOnly
           disabled
         />
         <Input
           label="PP/Min"
-          val={this.props.partsPerMin}
+          val={props.partsPerMin}
           readOnly
           disabled
         />
         <Input
           classes={secPerPartClasses}
           label="(s) per part"
-          val={this.props.secPerPart}
+          val={props.secPerPart}
           readOnly
           disabled
 
         />
-        <div>
-          Target: {this.props.secPerPartTarget}
-        </div>
       </div>
     );
-  }
+
 }
  
-export default Totals;
+export default totals;

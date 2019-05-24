@@ -17,6 +17,7 @@ class VolumePane extends Component {
     secPerPart: '',
   }
 
+  //TODO: Make modular, use array and get indexes to make correct calcs?
   pcsYearChangedHandler = (e) => {
     const stateChangeObj = {
       pcsYear: e.target.value,
@@ -24,6 +25,9 @@ class VolumePane extends Component {
       pcsDay: e.target.value / 50 / 5,
     }
     this.updateTotals(stateChangeObj);
+
+    // Update pcsYear in App state for Totals reference
+    this.props.updatePcsYear(e.target.value);
   }
 
   pcsWeekChangedHandler = (e) => {
@@ -53,8 +57,6 @@ class VolumePane extends Component {
   }
 
   updateTotals = (newStateChangeObj) => {
-    console.log('Updating volume totals')
-
     const newState = {...this.state, ...newStateChangeObj};
 
     // Check if all required input fields are filled in
@@ -69,7 +71,7 @@ class VolumePane extends Component {
             (newState.numShifts * newState.hrsShift);
           newState.partsPerMin = newState.partsPerHour / 60;
           newState.secPerPart = 60 / newState.partsPerMin;
-      }
+    }
 
     // Update state
     this.setState(newState);

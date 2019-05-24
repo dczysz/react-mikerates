@@ -4,6 +4,7 @@ import ReactSwipe from 'react-swipe';
 import './App.css';
 import RatePane from './containers/RatePane/RatePane';
 import VolumePane from './containers/VolumePane/VolumePane';
+import Target from './components/Target/Target';
 
 class App extends Component {
   state = {
@@ -32,6 +33,10 @@ class App extends Component {
     this.setState({ secPerPart: newSecPerPartState });
   }
 
+  pcsYearChangedHandler = (newPcsYearVal) => {
+    this.setState({ pcsYear: newPcsYearVal });
+  }
+
   render() {
     let reactSwipeEl;
     //! ReactSwipe must have divs as children, then components
@@ -44,7 +49,8 @@ class App extends Component {
           <div className="swipeDiv">
             <VolumePane
               secPerPartTarget={this.state.secPerPart.volume}
-              updateSecPerPartTarget={(newTargetVal) => this.secPerPartTargetChangedHandler(newTargetVal)} />
+              updateSecPerPartTarget={(newTargetVal) => this.secPerPartTargetChangedHandler(newTargetVal)}
+              updatePcsYear={(newPcsYearVal) => this.pcsYearChangedHandler(newPcsYearVal)} />
           </div>
 
           <div className="swipeDiv">
@@ -63,6 +69,11 @@ class App extends Component {
             />
           </div>
         </ReactSwipe>
+        
+        <Target
+          pcsYear={this.state.pcsYear}
+          target={this.state.secPerPart.volume}
+        />
       </div>
     );
   }

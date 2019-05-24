@@ -16,8 +16,8 @@
   -moz-appearance: textfield;
   appearance: textfield;
   font-size: 1rem;
-  border: 1px solid black;
-  border-radius: 3px;
+  border: 2px solid gray;
+  border-radius: 5px;
   padding: 0.5rem;
   outline: none;
   width: 50vw;
@@ -30,10 +30,13 @@
 
 .success {
   color: green;
+  border-color: green;
 }
 .danger {
   color: red;
+  border-color: red;
 }
 .ok {
   color: blue;
+  border-color: blue;
 }

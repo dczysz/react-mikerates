@@ -9,7 +9,7 @@ const input = (props) => {
       <input
         className={[classes.inputField, classes[props.classes]].join(' ')}
         type="number"
-        value={props.val}
+        value={props.val === 0 || props.val === '' ? '' : Number(props.val).toFixed(2)}
         onChange={props.changed}
         readOnly={props.readOnly}
         disabled={props.disabled}

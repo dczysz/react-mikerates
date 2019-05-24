@@ -13,39 +13,25 @@ class RatePane extends Component {
     secPerPart: '',
   }
 
-  //! Can't do here, infinite update loop
-  // componentWillUpdate = () => {
-  //   console.log('componentWillUpdate')
-  //   this.updateTotals();
-  // }
-
   numOfChangedHandler = (e) => {
-    console.log('[RatePane] numOfChangedHandler()', e.target.value)
     this.updateTotals({ numOf: Number(e.target.value) });
   }
 
   cycleTimeChangedHandler = (e) => {
-    console.log('[RatePane] cycleTimeChangedHandler()', e.target.value)
     this.updateTotals({ cycleTime: Number(e.target.value) });
   }
 
   updateTotals = (newStateChangeObj) => {
-    console.log('[RatePane] updateTotals()');
-
     // Copy state and overwrite changed val with newStateChangeObj
     const newState = {...this.state, ...newStateChangeObj};
-    console.log(newState);
 
     // Calculate totals
     if (newState.numOf !== 0 && newState.numOf !== '' &&
       newState.cycleTime !== 0 && newState.cycleTime !== '') {
-      console.log('calculating...');
       
-      newState.secPerPart = newState.cycleTime / newState.numOf;
-      newState.partsPerMin = 60 / newState.secPerPart;
-      newState.partsPerHour = 60 * newState.partsPerMin;
-
-      console.log('Calculated totals:', newState);
+        newState.secPerPart = newState.cycleTime / newState.numOf;
+        newState.partsPerMin = 60 / newState.secPerPart;
+        newState.partsPerHour = 60 * newState.partsPerMin;
     }
 
     // Update state

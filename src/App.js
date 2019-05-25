@@ -28,7 +28,7 @@ class App extends Component {
       molding: null,
     },
     pcsYear: null,
-    showSettings: true,
+    showSettings: false,
     nextId: 3,
     swipeRefresh: 0,
   }

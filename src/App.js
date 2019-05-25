@@ -33,22 +33,28 @@ class App extends Component {
     swipeRefresh: 0,
   }
 
-  componentWillUpdate() {
-    console.log('[App] componentWillUpdate');
-    // get all the react swipe divs
-    // const swipeDivs = document.getElementsByClassName('react-swipe-container')[0].children[0];
-    // console.log(swipeDivs);
+  componentDidMount() {
+    // Overwrite default panes state with cookie if present
+    const cookiePanes = this.getCookie('panes');
+    if (cookiePanes) this.setState({
+      panes: JSON.parse(cookiePanes),
+    })
+  }
 
-    // let swipeDivsClasses = [];
-    // swipeDivs.forEach(div => {
-    //   // swipeDivsClasses.push()
-    // });
-    // console.log(swipeDivsClasses);
-    
+  getCookie = (cookieName) => {
+    let name = cookieName + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
 
-    // change their keys if they arent incremental
-
-    //! this.setState({ swipeRefresh: this.state.swipeRefresh + 1 });
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
   }
 
   secPerPartTargetChangedHandler = (newTargetVal) => {
@@ -78,6 +84,8 @@ class App extends Component {
       panes: newPaneState,
       swipeRefresh: this.state.swipeRefresh + 1,
     });
+
+    this.updatePanesCookie(newPaneState);
   }
 
   addPaneHandler = newPaneObj => {
@@ -94,7 +102,16 @@ class App extends Component {
       panes: newPaneState,
       nextId: this.state.nextId + 1,
       swipeRefresh: this.state.swipeRefresh + 1,
-    })
+    });
+
+    this.updatePanesCookie(newPaneState);
+  }
+
+  updatePanesCookie = (newPaneState) => {
+    let date = new Date();
+    date.setFullYear(date.getFullYear() + 1);
+
+    document.cookie = `panes=${JSON.stringify(newPaneState)}; expires=${date.toUTCString()}`;
   }
 
   render() {

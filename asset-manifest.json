@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-mikerates/static/css/main.6d9ed498.chunk.css",
-    "main.js": "/react-mikerates/static/js/main.b2248aa2.chunk.js",
-    "main.js.map": "/react-mikerates/static/js/main.b2248aa2.chunk.js.map",
+    "main.js": "/react-mikerates/static/js/main.f21f04f7.chunk.js",
+    "main.js.map": "/react-mikerates/static/js/main.f21f04f7.chunk.js.map",
     "runtime~main.js": "/react-mikerates/static/js/runtime~main.9b8a7bee.js",
     "runtime~main.js.map": "/react-mikerates/static/js/runtime~main.9b8a7bee.js.map",
     "static/js/2.7fbb5daa.chunk.js": "/react-mikerates/static/js/2.7fbb5daa.chunk.js",
     "static/js/2.7fbb5daa.chunk.js.map": "/react-mikerates/static/js/2.7fbb5daa.chunk.js.map",
     "index.html": "/react-mikerates/index.html",
-    "precache-manifest.201107bf3a746252c5efb4f82902b62d.js": "/react-mikerates/precache-manifest.201107bf3a746252c5efb4f82902b62d.js",
+    "precache-manifest.ea8bd1b849100185005ce509e13f67d7.js": "/react-mikerates/precache-manifest.ea8bd1b849100185005ce509e13f67d7.js",
     "service-worker.js": "/react-mikerates/service-worker.js",
     "static/css/main.6d9ed498.chunk.css.map": "/react-mikerates/static/css/main.6d9ed498.chunk.css.map"
   }

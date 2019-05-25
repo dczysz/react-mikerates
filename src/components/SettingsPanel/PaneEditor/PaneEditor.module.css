@@ -1,0 +1,62 @@
+.PaneEditor {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 1rem;
+  color: gray;
+}
+
+.editing {
+  color: white;
+  background-color: rgb(61, 91, 228);
+}
+
+.PaneEditor:focus input,
+.PaneEditor:active input {
+  text-transform: lowercase;
+}
+
+input {
+  border: none;
+  background: inherit;
+  color: inherit;
+  width: 40%;
+}
+
+input:focus,
+input:active {
+  text-transform: lowercase;
+}
+
+button {
+  border: none;
+  background: inherit;
+  color: inherit;
+  width: 10%;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin: 0 0.1rem;
+}
+
+.name {
+  font-weight: bold;
+  width: 50%;
+  text-transform: capitalize;
+}
+
+.numOfLabel {
+  
+}
+
+.numOfInput {
+  width: 50%;
+  text-transform: capitalize;
+}
+
+.btnDone {
+  color: greenyellow !important;
+}
+
+.btnRemove {
+  color: palevioletred;
+}

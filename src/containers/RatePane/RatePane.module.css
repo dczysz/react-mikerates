@@ -1,5 +1,5 @@
 .RatePane {
-  height: 60vh;
+  /* height: 60vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,4 +29,8 @@
   transform: 
     rotate(90deg)
     scaleX(2);
+}
+
+.totals {
+  margin-top: 1.2rem;
 }

@@ -56,12 +56,14 @@ class RatePane extends Component {
           />
         </div>
         
-        <Totals
-          partsPerHour={this.state.partsPerHour}
-          partsPerMin={this.state.partsPerMin}
-          secPerPart={this.state.secPerPart}
-          secPerPartTarget={this.props.secPerPartTarget}
-        />
+        <div className={classes.totals}>
+          <Totals
+            partsPerHour={this.state.partsPerHour}
+            partsPerMin={this.state.partsPerMin}
+            secPerPart={this.state.secPerPart}
+            secPerPartTarget={this.props.secPerPartTarget}
+          />
+        </div>
       </div>
     );
   }

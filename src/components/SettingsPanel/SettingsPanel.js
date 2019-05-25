@@ -25,6 +25,7 @@ class SettingsPanel extends Component {
           name={paneObj.name}
           numOfLabel={paneObj.numOfLabel}
           deleteClicked={this.props.deleteClicked}
+          editPane={this.props.editPane}
         />
       );
     });

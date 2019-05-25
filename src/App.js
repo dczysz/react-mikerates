@@ -107,6 +107,22 @@ class App extends Component {
     this.updatePanesCookie(newPaneState);
   }
 
+  editPaneHandler = editiedPaneObj => {
+    // Copy pane state
+    const newPaneState = this.state.panes.map(pane => {
+      return pane.id === editiedPaneObj.id ? editiedPaneObj : {...pane};
+    });
+
+    // Update pane
+    // newPaneState[editiedPaneObj.name] = editiedPaneObj;
+
+    // Update state
+    this.setState({
+      panes: newPaneState,
+      swipeRefresh: this.state.swipeRefresh + 1,
+    });
+  }
+
   updatePanesCookie = (newPaneState) => {
     let date = new Date();
     date.setFullYear(date.getFullYear() + 1);
@@ -162,6 +178,7 @@ class App extends Component {
           panes={this.state.panes}
           deleteClicked={this.deletePaneHandler}
           addPane={this.addPaneHandler}
+          editPane={this.editPaneHandler}
         />
         <Backdrop
           show={this.state.showSettings}

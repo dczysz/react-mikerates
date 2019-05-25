@@ -8,29 +8,27 @@ class SettingsPanel extends Component {
 
   }
 
-  // panesCopy = this.props.panes.map(paneObj => {
-  //   return {...paneObj};
-  // });
-
-  paneChangedHandler = (e) => {
-    console.log(e);
-    
+  componentWillUpdate() {
+    console.log('[SettingsPanel] will update');
+    console.log(this.props.panes)
   }
 
-  panesComps = this.props.panes.map(paneObj => {
-    return (
-      <PaneEditor
-        key={paneObj.id}
-        id={paneObj.id}
-        name={paneObj.name}
-        numOfLabel={paneObj.numOfLabel}
-        changed={this.paneChangedHandler}
-        deleteClicked={this.props.deleteClicked}
-      />
-    );
-  });
+
+  
 
   render() {
+    const panesComps = this.props.panes.map(paneObj => {
+      return (
+        <PaneEditor
+          key={paneObj.id}
+          id={paneObj.id}
+          name={paneObj.name}
+          numOfLabel={paneObj.numOfLabel}
+          deleteClicked={this.props.deleteClicked}
+        />
+      );
+    });
+
     // Set panel to open or closed
     const panelClasses = [classes.SettingsPanel];
     panelClasses.push(this.props.show ? classes.open : classes.closed);
@@ -39,14 +37,11 @@ class SettingsPanel extends Component {
       <div className={panelClasses.join(' ')}>
         <h2>Settings</h2>
 
-        {this.panesComps}
+        {panesComps}
 
         <PaneEditor
           key="newPanel"
           id={null}
-          // name={paneObj.name}
-          // numOfLabel={paneObj.numOfLabel}
-          changed={this.paneChangedHandler}
           deleteClicked={this.props.deleteClicked}
           addPane={this.props.addPane}
           new

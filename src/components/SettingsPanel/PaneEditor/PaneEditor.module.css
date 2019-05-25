@@ -11,6 +11,11 @@
   background-color: rgb(61, 91, 228);
 }
 
+.editing input {
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
 .PaneEditor:focus input,
 .PaneEditor:active input {
   text-transform: lowercase;
@@ -21,6 +26,7 @@ input {
   background: inherit;
   color: inherit;
   width: 40%;
+  margin: 0 0.1rem;
 }
 
 input:focus,

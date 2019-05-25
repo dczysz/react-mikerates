@@ -92,6 +92,7 @@ class App extends Component {
 
     this.setState({
       panes: newPaneState,
+      nextId: this.state.nextId + 1,
       swipeRefresh: this.state.swipeRefresh + 1,
     })
   }
@@ -108,7 +109,7 @@ class App extends Component {
           <RatePane
             pageName={pane.name}
             numOfLabel={pane.numOfLabel}
-            secPerPartTarget={this.state.secPerPart[pane.name]}
+            secPerPartTarget={this.state.secPerPart.volume}
           />
         </div>
       );

@@ -10,29 +10,31 @@ class PaneEditor extends Component {
   }
 
   toggleEditingHandler = () => {
+    // Build new pane obj and new pane
     const newPane = {};
-    // Add new pane
     if (this.state.editing && this.state.tempNewName !== '' && this.state.tempNewNumOf !== '') {
       newPane.name = this.state.tempNewName;
       newPane.numOfLabel = this.state.tempNewNumOf;
 
       // Send to App with new pane to update panes
       this.props.addPane(newPane);
+      
+      // Clear input if it's the add new row
+      if (this.props.new) {
+        console.log('its new!');
+        this.setState({ tempNewName: '', tempNewNumOf: '' });
+      }
     }
-    
-
-    //TODO: Send to App to update state.panes
 
     this.setState({ editing: !this.state.editing });
   }
 
   // Store temporarily in state until confirm
   nameChangedHandler = (newTempName) => {
-    this.setState({ tempNewName: newTempName });
+    this.setState({ tempNewName: newTempName.slice() });
   }
   numOfChangedHandler = (newTempNumOf) => {
-    console.log(newTempNumOf)
-    this.setState({ tempNewNumOf: newTempNumOf });
+    this.setState({ tempNewNumOf: newTempNumOf.slice() });
   }
 
 
@@ -54,15 +56,12 @@ class PaneEditor extends Component {
       }
     }
 
-    
-    
-
     return (
       <div className={classesArr.join(' ')}>
         <input
           type="text"
           className={classes.name}
-          defaultValue={this.props.name}
+          defaultValue={this.props.new ? this.state.tempNewName : this.props.name}
           onChange={(e) => this.nameChangedHandler(e.target.value)}
           disabled={!this.state.editing}
         />
@@ -71,7 +70,7 @@ class PaneEditor extends Component {
           <input
             type="text"
             className={classes.numOfInput}
-            defaultValue={this.props.numOfLabel}
+            defaultValue={this.props.new ? this.state.tempNewNumOf : this.props.numOfLabel}
             onChange={(e) => this.numOfChangedHandler(e.target.value)}
             disabled={!this.state.editing}
           />

@@ -37,6 +37,9 @@ class VolumePane extends Component {
       pcsDay: e.target.value / 5,
     }
     this.updateTotals(stateChangeObj);
+
+    // Update pcsYear in App state for Totals reference
+    this.props.updatePcsYear(stateChangeObj.pcsYear);
   }
 
   pcsDayChangedHandler = (e) => {
@@ -46,6 +49,9 @@ class VolumePane extends Component {
       pcsDay: e.target.value,
     }
     this.updateTotals(stateChangeObj);
+
+    // Update pcsYear in App state for Totals reference
+    this.props.updatePcsYear(stateChangeObj.pcsYear);
   }
 
   numShiftsChangedHandler = (e) => {

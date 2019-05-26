@@ -37,11 +37,12 @@
 }
 
 .darkToggle {
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   border-radius: 50%;
   border: 1px solid var(--white);
   margin-right: 3rem;
+  font-size: 1.5rem;
 }
 
 .darkToggle.dark {

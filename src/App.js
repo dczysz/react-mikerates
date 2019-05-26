@@ -188,7 +188,7 @@ class App extends Component {
           prev={() => reactSwipeEl.prev()}
           next={() => reactSwipeEl.next()}
           pos={() => reactSwipeEl.getPos()}
-          len={this.state.panes.length + 1}
+          // len={this.state.panes.length + 1}
         />
         
         <ReactSwipe

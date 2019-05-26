@@ -1,5 +1,5 @@
 :root {
-  --primary: #343765;
+  --primary: #424680;
   --black: #141525;
   --white: #eeeff6;
   --gradient: #14152533;
@@ -26,11 +26,11 @@
 }
 
 .App.Dark {
-  --secondary: #343765;
+  --secondary: var(--primary);
   --text: var(--white);
   --background: var(--black);
   --gray: #666;
-  --disabled: #262849;
+  --disabled: #2c2e53;
   --success: #06f9c8;
   --danger: #ff1a62;
   --ok: #5ba9ff;

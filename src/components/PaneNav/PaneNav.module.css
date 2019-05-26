@@ -8,6 +8,12 @@
   align-items: center;
   pointer-events: none;
   z-index: 2;
+  background-image: linear-gradient(to right,
+    var(--background),
+    #0000,
+    #0000,
+    #0000,
+    var(--background));
 }
 
 .ReactSwipe {
@@ -15,21 +21,21 @@
 }
 
 .arrow {
-  height: 44px;
-  margin: 24px 0;
+  /* height: 44px; */
+  margin: 1rem 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
   z-index: -1;
   pointer-events: all;
+  padding: 1.5rem 1rem;
 }
 
 .line {
   width: 24px;
   height: 4px;
   background-color: var(--text);
-  background-blend-mode: color-dodge;
 }
 
 .left .line {
@@ -67,4 +73,9 @@
 
 .disabled {
   background-color: var(--disabled);
+}
+
+.PaneNav button {
+  z-index: 100;
+  pointer-events: all;
 }

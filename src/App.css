@@ -1,5 +1,5 @@
 :root {
-  --black: #111;
+  --black: #141525;
   --white: #eeeff6;
   --time: 0.2s;
   --font: Poppins, sans-serif;
@@ -28,7 +28,7 @@
   --primary: #343765;
   --secondary: #343765;
   --text: var(--white);
-  --background: #111222;;
+  --background: var(--black);
   --gray: #666;
   --disabled: #232543;
   --success: #06f9c8;

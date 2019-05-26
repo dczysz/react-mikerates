@@ -30,7 +30,7 @@
   --text: var(--white);
   --background: var(--black);
   --gray: #666;
-  --disabled: #232543;
+  --disabled: #262849;
   --success: #06f9c8;
   --danger: #ff1a62;
   --ok: #5ba9ff;
@@ -46,11 +46,9 @@
 }
 
 .ReactSwipe {
-  height: calc(100vh - 64px);
-  overflow-y: hidden;
+  min-height: calc(100vh - 64px);
 }
 
 .swipeDiv {
-  height: calc(100vh - 64px);
-  overflow-y: hidden;
+  min-height: calc(100vh - 64px);
 }

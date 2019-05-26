@@ -31,8 +31,8 @@ class SettingsPanel extends Component {
     return (
       <div className={panelClasses.join(' ')}>
 
-        <div className={classes.heading}>
           <h2>Settings</h2>
+        <div className={classes.heading}>
 
           <button
             className={[classes.darkToggle, this.props.darkEnabled ?classes.dark : classes.light].join(' ')}

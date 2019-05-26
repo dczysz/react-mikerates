@@ -4,7 +4,7 @@ import ReactSwipe from 'react-swipe';
 import './App.css';
 import VolumePane from './containers/VolumePane/VolumePane';
 import RatePane from './containers/RatePane/RatePane';
-import Target from './components/TopBar/TopBar';
+import TopBar from './components/TopBar/TopBar';
 import SettingsPanel from './components/SettingsPanel/SettingsPanel';
 import Backdrop from './components/Backdrop/Backdrop';
 
@@ -175,10 +175,11 @@ class App extends Component {
 
     return (
       <div className={this.state.darkMode ? 'App Dark' : 'App Light'}>
-        <Target
+        <TopBar
           pcsYear={this.state.pcsYear}
           target={this.state.secPerPart.volume}
           clicked={this.toggleShowSettings}
+          showSettings={this.state.showSettings}
         />
 
         <ReactSwipe

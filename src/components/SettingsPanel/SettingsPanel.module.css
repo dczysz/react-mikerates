@@ -19,14 +19,24 @@
 }
 
 .heading {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   padding: 1rem;
 }
 
-.heading h2 {
-  text-align: center;
-  margin: 0;
+.SettingsPanel h2 {
+  /* text-align: center; */
+  /* margin: 0 auto 1rem auto; */
+  margin: 1rem;
+  transition: opacity var(--time);
+}
+
+.open h2 {
+  opacity: 1;
+}
+
+.closed h2 {
+  opacity: 0;
 }
 
 .darkToggle {
@@ -34,6 +44,7 @@
   width: 2rem;
   border-radius: 50%;
   border: 1px solid var(--white);
+  margin-right: 3rem;
 }
 
 .darkToggle.dark {

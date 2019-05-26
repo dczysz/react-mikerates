@@ -10,11 +10,43 @@
   cursor: pointer;
   /* border: 1px solid gray;
   border-radius: 3px; */
+  z-index: 1000;
 }
 
-.DrawerToggle div {
+/* .DrawerToggle div {
   width: 90%;
   height: 3px;
   background-color: var(--white);
   margin: 3px 0;
+} */
+
+.topLine,
+.bottomLine {
+  width: 24px;
+  height: 4px;
+  background-color: var(--white);
+  transition: all var(--time);
+  transform-origin: left;
+}
+
+.topLine {
+  margin-bottom: 12.5px;
+}
+
+.topClosed {
+  transform:
+    rotate(45deg);
+    /* translateY(-3px)
+    translateX(-3px); */
+}
+
+.bottomOpen {
+
+}
+
+.bottomClosed {
+  transform:
+    rotate(-45deg);
+    /* translateY(3px)
+    translateX(3px); */
 }

@@ -20,6 +20,7 @@ const topBar = (props) => {
       </div>
       <DrawerToggle
         clicked={props.clicked}
+        showSettings={props.showSettings}
       />
     </div>
   );

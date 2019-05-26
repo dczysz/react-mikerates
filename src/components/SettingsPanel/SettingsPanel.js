@@ -4,17 +4,11 @@ import classes from './SettingsPanel.module.css';
 import PaneEditor from './PaneEditor/PaneEditor';
 
 class SettingsPanel extends Component {
-  state = {
-
-  }
 
   componentWillUpdate() {
     console.log('[SettingsPanel] will update');
     console.log(this.props.panes)
   }
-
-
-  
 
   render() {
     const panesComps = this.props.panes.map(paneObj => {
@@ -36,7 +30,16 @@ class SettingsPanel extends Component {
 
     return (
       <div className={panelClasses.join(' ')}>
-        <h2>Settings</h2>
+
+        <div className={classes.heading}>
+          <h2>Settings</h2>
+          <button
+            className={classes.darkToggle}
+            onClick={this.props.darkToggleClicked}
+          >
+            <i className="far fa-lightbulb"></i>
+          </button>
+        </div>
 
         {panesComps}
 

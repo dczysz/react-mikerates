@@ -16,7 +16,7 @@
   -moz-appearance: textfield;
   appearance: textfield;
   font-size: 1rem;
-  border: 2px solid gray;
+  border: 2px solid var(--gray);
   border-radius: 5px;
   padding: 0.5rem;
   outline: none;
@@ -30,17 +30,18 @@
 
 .inputField:disabled {
   pointer-events: none;
+  background-color: var(--disabled);
 }
 
 .success {
-  color: green;
-  border-color: green;
+  color: var(--success);
+  border-color: var(--success);
 }
 .danger {
-  color: red;
-  border-color: red;
+  color: var(--red);
+  border-color: var(--red);
 }
 .ok {
-  color: blue;
-  border-color: blue;
+  color: var(--ok);
+  border-color: var(--ok);
 }

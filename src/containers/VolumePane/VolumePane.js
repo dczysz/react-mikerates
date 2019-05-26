@@ -171,7 +171,7 @@ class VolumePane extends Component {
           partsPerHourChanged={this.partsPerHourChanged}
           partsPerMinChanged={this.partsPerMinChanged}
           secPerPartChanged={this.secPerPartChanged}
-          disabled="false"
+          disabled="true" // Switched off for now
         />
       </div>
     );

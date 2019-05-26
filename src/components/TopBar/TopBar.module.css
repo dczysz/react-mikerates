@@ -4,8 +4,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  color: white;
-  background-color: black;
+  color: inherit;
+  background-color: var(--primary);
   /* position: fixed; */
   /* bottom: 0; */
 }

@@ -3,17 +3,18 @@
   display: flex;
   justify-content: space-between;
   padding: 0.4rem 1rem;
-  color: gray;
+  color: var(--gray);
 }
 
-.editing {
-  color: white;
-  background-color: rgb(61, 91, 228);
+.PaneEditor.editing {
+  color: var(--text);
+  background-color: var(--primary);
 }
 
-.editing input {
-  border: 1px solid gray;
+.PaneEditor.editing input {
+  border-color: var(--gray);
   border-radius: 3px;
+  outline: none;
 }
 
 .PaneEditor:focus input,
@@ -21,48 +22,48 @@
   text-transform: lowercase;
 }
 
-input {
-  border: none;
+.PaneEditor input {
+  border: 1px solid transparent;
   background: inherit;
   color: inherit;
   width: 40%;
   margin: 0 0.1rem;
 }
 
-input:focus,
-input:active {
+.PaneEditor input:focus,
+.PaneEditor input:active {
   text-transform: lowercase;
 }
 
-button {
+.PaneEditor button {
   border: none;
   background: inherit;
   color: inherit;
   width: 10%;
-  border: 1px solid gray;
+  border: 1px solid var(--gray);
   border-radius: 3px;
   margin: 0 0.1rem;
 }
 
-.name {
+.PaneEditor .name {
   font-weight: bold;
   width: 20vw;
   text-transform: capitalize;
 }
 
-.numOfLabel {
+.PaneEditor .numOfLabel {
   
 }
 
-.numOfInput {
+.PaneEditor .numOfInput {
   width: 50%;
   text-transform: capitalize;
 }
 
-.btnDone {
-  color: greenyellow !important;
+.PaneEditor .btnDone {
+  color: var(--success);
 }
 
-.btnRemove {
-  color: palevioletred;
+.PaneEditor .btnRemove {
+  color: var(--danger);
 }

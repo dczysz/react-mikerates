@@ -31,22 +31,30 @@ class App extends Component {
     showSettings: false,
     nextId: 3,
     swipeRefresh: 0,
+    darkMode: true,
   }
 
   componentWillMount() {
-    // Overwrite default panes and secPerPart state with cookie if present
-    const cookiePanes = JSON.parse(this.getCookie('panes'));
     console.log('[App] componentWillMount');
-    if (cookiePanes) {
-      console.log('cookie:', cookiePanes);
+    // Overwrite default panes and secPerPart state with cookie if present
+    const cookie = this.getCookie('panes');
+
+    if (cookie) {
+      const cookiePanes = JSON.parse(cookie);
       
       const cookieSecPerPartStrArr = cookiePanes.map(pane => pane.name);
       const newSecPerPartState = {};
       cookieSecPerPartStrArr.forEach(paneName => newSecPerPartState[paneName] = null);
 
+      // Set new nextId according to highest id in cookie
+      let paneIds = cookiePanes.map(pane => pane.id);
+      let newNextId = 0;
+      paneIds.forEach(id => newNextId = id >= newNextId ? id + 1 : newNextId);
+
       this.setState({
         panes: cookiePanes,
         secPerPart: newSecPerPartState,
+        nextId: newNextId,
       });
     } 
   }
@@ -142,8 +150,13 @@ class App extends Component {
     document.cookie = `panes=${JSON.stringify(newPaneState)}; expires=${date.toUTCString()}`;
   }
 
+  darkToggleClickedHandler = () => {
+    this.setState({ darkMode: !this.state.darkMode });
+  }
+
   render() {
-    let reactSwipeEl; //! ReactSwipe must have divs as children, then components
+    // var reactSwipeEl;
+    //! ReactSwipe must have divs as children, then components
 
     // Set up other panes (besides volume)
     const ratePanes = this.state.panes.map((pane, index) => {
@@ -161,7 +174,7 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
+      <div className={this.state.darkMode ? 'App Dark' : 'App Light'}>
         <Target
           pcsYear={this.state.pcsYear}
           target={this.state.secPerPart.volume}
@@ -170,7 +183,7 @@ class App extends Component {
 
         <ReactSwipe
           swipeOptions={{ continuous: false }}
-          ref={el => (reactSwipeEl = el)}
+          // ref={el => (reactSwipeEl = el)}
           key={this.state.swipeRefresh} // Only refreshes correctly on key change
         >
           <div className="swipeDiv">
@@ -191,6 +204,7 @@ class App extends Component {
           deleteClicked={this.deletePaneHandler}
           addPane={this.addPaneHandler}
           editPane={this.editPaneHandler}
+          darkToggleClicked={this.darkToggleClickedHandler}
         />
         <Backdrop
           show={this.state.showSettings}

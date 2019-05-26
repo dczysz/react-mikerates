@@ -45,7 +45,12 @@
   font-family: var(--font);
 }
 
+.ReactSwipe {
+  height: calc(100vh - 64px);
+  overflow-y: hidden;
+}
+
 .swipeDiv {
-  height: 100%;
-  overflow: hidden;
+  height: calc(100vh - 64px);
+  overflow-y: hidden;
 }

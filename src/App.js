@@ -163,7 +163,7 @@ class App extends Component {
       return (
         <div 
           className="swipeDiv"
-          key={pane.name + index}>
+          key={pane.id}>
           <RatePane
             pageName={pane.name}
             numOfLabel={pane.numOfLabel}
@@ -183,6 +183,7 @@ class App extends Component {
 
         <ReactSwipe
           swipeOptions={{ continuous: false }}
+          className="ReactSwipe"
           // ref={el => (reactSwipeEl = el)}
           key={this.state.swipeRefresh} // Only refreshes correctly on key change
         >

@@ -205,6 +205,7 @@ class App extends Component {
           addPane={this.addPaneHandler}
           editPane={this.editPaneHandler}
           darkToggleClicked={this.darkToggleClickedHandler}
+          darkEnabled={this.state.darkMode}
         />
         <Backdrop
           show={this.state.showSettings}

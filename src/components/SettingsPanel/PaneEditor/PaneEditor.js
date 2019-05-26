@@ -9,6 +9,16 @@ class PaneEditor extends Component {
     tempNewNumOf: '',
   }
 
+  componentWillMount() {
+    // Set tempNew to passed in props if existent
+    if (this.props.name && this.props.numOfLabel) {
+      this.setState({
+        tempNewName: this.props.name,
+        tempNewNumOf: this.props.numOfLabel
+      });
+    }
+  }
+
   componentWillUpdate() {
     if (this.props.new && !this.state.editing &&
       this.state.tempNewName !== '' && this.state.tempNewNumOf !== '') {
@@ -23,8 +33,6 @@ class PaneEditor extends Component {
       newPane.name = this.state.tempNewName;
       newPane.numOfLabel = this.state.tempNewNumOf;
 
-      
-      
       if (this.props.new) {
         console.log('its new!');
         // Send to App with new pane to update panes
@@ -33,8 +41,6 @@ class PaneEditor extends Component {
         // Clear input if it's the add new row
         this.setState({ tempNewName: '', tempNewNumOf: '' });
       } else {
-        console.log('modified', this.props.id, this.state.tempNewName, this.state.tempNewNumOf);
-
         this.props.editPane({
           id: this.props.id,
           name: this.state.tempNewName,

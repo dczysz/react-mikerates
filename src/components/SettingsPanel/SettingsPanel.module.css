@@ -4,8 +4,8 @@
   right: 0;
   height: 100%;
   width: 80vw;
-  background-color: var(--black);
-  color: var(--gray);
+  background-color: var(--primary);
+  color: var(--white);
   transition: transform 0.3s;
   z-index: 101;
 }
@@ -33,7 +33,15 @@
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
+  border: 1px solid var(--white);
+}
+
+.darkToggle.dark {
   background-color: inherit;
-  border: 1px solid var(--gray);
   color: inherit;
+}
+
+.darkToggle.light {
+  background-color: var(--white);
+  color: var(--primary);
 }

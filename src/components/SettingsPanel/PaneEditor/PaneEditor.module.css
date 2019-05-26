@@ -3,16 +3,17 @@
   display: flex;
   justify-content: space-between;
   padding: 0.4rem 1rem;
-  color: var(--gray);
+  color: var(--white);
+  opacity: 0.8;
 }
 
 .PaneEditor.editing {
-  color: var(--text);
-  background-color: var(--primary);
+  opacity: 1;
+  background-color: var(--disabled);
 }
 
 .PaneEditor.editing input {
-  border-color: var(--gray);
+  border-color: var(--ok);
   border-radius: 3px;
   outline: none;
 }
@@ -27,7 +28,7 @@
   background: inherit;
   color: inherit;
   width: 40%;
-  margin: 0 0.1rem;
+  margin: 0 0.2rem;
 }
 
 .PaneEditor input:focus,
@@ -37,11 +38,11 @@
 
 .PaneEditor button {
   border: none;
-  background: inherit;
+  background: var(--black);
   color: inherit;
   width: 10%;
-  border: 1px solid var(--gray);
-  border-radius: 3px;
+  /* border: 1px solid var(--gray); */
+  /* border-radius: 3px; */
   margin: 0 0.1rem;
 }
 

@@ -1,6 +1,8 @@
 :root {
   --black: #111;
+  --white: #eeeff6;
   --time: 0.2s;
+  --font: Poppins, sans-serif;
 }
 
 *, *::before, *::after {
@@ -11,26 +13,26 @@
 }
 
 .App.Light {
-  --primary: #00bf03;
-  --secondary: #f8f;
-  --text: black;
-  --background: #eee;
+  --primary: #343765;
+  --secondary: #dddeee;
+  --text: var(--primary);
+  --background: var(--white);
   --gray: #999;
-  --disabled: #ddd;
-  --success: green;
-  --danger: red;
-  --ok: #006be1;
+  --disabled: #abaed4;
+  --success: #06f9c8;
+  --danger: #ff1a62;
+  --ok: #208cff;
 }
 
 .App.Dark {
-  --primary: #004701;
-  --secondary: #f8f;
-  --text: #ddd;
-  --background: #151515;
+  --primary: #343765;
+  --secondary: #343765;
+  --text: var(--white);
+  --background: #111222;;
   --gray: #666;
-  --disabled: #333;
-  --success: green;
-  --danger: red;
+  --disabled: #232543;
+  --success: #06f9c8;
+  --danger: #ff1a62;
   --ok: #5ba9ff;
 }
 
@@ -40,6 +42,7 @@
   height: 100vh;
   background-color: var(--background);
   color: var(--text);
+  font-family: var(--font);
 }
 
 .swipeDiv {

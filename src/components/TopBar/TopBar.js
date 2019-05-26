@@ -11,7 +11,7 @@ const topBar = (props) => {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
   }
-console.log(props.target)
+
   return (
     <div className={classes.TopBar}>
       <div className={classes.Target}>

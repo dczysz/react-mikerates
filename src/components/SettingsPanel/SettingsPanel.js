@@ -33,8 +33,9 @@ class SettingsPanel extends Component {
 
         <div className={classes.heading}>
           <h2>Settings</h2>
+
           <button
-            className={classes.darkToggle}
+            className={[classes.darkToggle, this.props.darkEnabled ?classes.dark : classes.light].join(' ')}
             onClick={this.props.darkToggleClicked}
           >
             <i className="far fa-lightbulb"></i>

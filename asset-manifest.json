@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-mikerates/static/css/main.b4ecc170.chunk.css",
-    "main.js": "/react-mikerates/static/js/main.932556f1.chunk.js",
-    "main.js.map": "/react-mikerates/static/js/main.932556f1.chunk.js.map",
+    "main.css": "/react-mikerates/static/css/main.b5f63d66.chunk.css",
+    "main.js": "/react-mikerates/static/js/main.a4e74e8a.chunk.js",
+    "main.js.map": "/react-mikerates/static/js/main.a4e74e8a.chunk.js.map",
     "runtime~main.js": "/react-mikerates/static/js/runtime~main.9b8a7bee.js",
     "runtime~main.js.map": "/react-mikerates/static/js/runtime~main.9b8a7bee.js.map",
     "static/js/2.eba11f2d.chunk.js": "/react-mikerates/static/js/2.eba11f2d.chunk.js",
     "static/js/2.eba11f2d.chunk.js.map": "/react-mikerates/static/js/2.eba11f2d.chunk.js.map",
     "index.html": "/react-mikerates/index.html",
-    "precache-manifest.5745efde64a581c81f05363d961f9dbb.js": "/react-mikerates/precache-manifest.5745efde64a581c81f05363d961f9dbb.js",
+    "precache-manifest.aef8fc86b67311e852b8d53c4a44933b.js": "/react-mikerates/precache-manifest.aef8fc86b67311e852b8d53c4a44933b.js",
     "service-worker.js": "/react-mikerates/service-worker.js",
-    "static/css/main.b4ecc170.chunk.css.map": "/react-mikerates/static/css/main.b4ecc170.chunk.css.map"
+    "static/css/main.b5f63d66.chunk.css.map": "/react-mikerates/static/css/main.b5f63d66.chunk.css.map"
   }
 }

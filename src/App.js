@@ -7,6 +7,7 @@ import RatePane from './containers/RatePane/RatePane';
 import TopBar from './components/TopBar/TopBar';
 import SettingsPanel from './components/SettingsPanel/SettingsPanel';
 import Backdrop from './components/Backdrop/Backdrop';
+import PaneNav from './components/PaneNav/PaneNav';
 
 class App extends Component {
   state = {
@@ -32,10 +33,10 @@ class App extends Component {
     nextId: 3,
     swipeRefresh: 0,
     darkMode: true,
+    position: 0,
   }
 
   componentWillMount() {
-    console.log('[App] componentWillMount');
     // Overwrite default panes and secPerPart state with cookie if present
     const cookie = this.getCookie('panes');
 
@@ -155,7 +156,7 @@ class App extends Component {
   }
 
   render() {
-    // var reactSwipeEl;
+    let reactSwipeEl;
     //! ReactSwipe must have divs as children, then components
 
     // Set up other panes (besides volume)
@@ -182,17 +183,27 @@ class App extends Component {
           showSettings={this.state.showSettings}
         />
 
+        <PaneNav
+          className="PaneNav"
+          prev={() => reactSwipeEl.prev()}
+          next={() => reactSwipeEl.next()}
+          pos={() => reactSwipeEl.getPos()}
+          len={this.state.panes.length + 1}
+        />
+        
         <ReactSwipe
           swipeOptions={{ continuous: false }}
           className="ReactSwipe"
-          // ref={el => (reactSwipeEl = el)}
+          ref={el => (reactSwipeEl = el)}
           key={this.state.swipeRefresh} // Only refreshes correctly on key change
         >
           <div className="swipeDiv">
             <VolumePane
               secPerPartTarget={this.state.secPerPart.volume}
               updateSecPerPartTarget={(newTargetVal) => this.secPerPartTargetChangedHandler(newTargetVal)}
-              updatePcsYear={(newPcsYearVal) => this.pcsYearChangedHandler(newPcsYearVal)} />
+              updatePcsYear={(newPcsYearVal) => this.pcsYearChangedHandler(newPcsYearVal)}
+              swipeEl={reactSwipeEl}
+            />
           </div>
 
           {ratePanes}

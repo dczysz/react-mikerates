@@ -128,7 +128,7 @@ class VolumePane extends Component {
   }
 
 
-  render() { 
+  render() {
     return (
       <div>
         <h1 className={ratePaneClasses.heading}>Volume</h1>

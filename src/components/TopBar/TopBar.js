@@ -15,8 +15,8 @@ const topBar = (props) => {
   return (
     <div className={classes.TopBar}>
       <div className={classes.Target}>
-        <p>Pcs. Year: <strong>{props.pcsYear === null ? '?' : addCommas(props.pcsYear)}</strong></p>
-        <p>(s) Per Part: <strong>{props.target === null || props.target === undefined ? '?' : Number(props.target).toFixed(2)}</strong></p>
+        <p><span>Pcs. Year:</span> <strong>{props.pcsYear === null ? '?' : addCommas(props.pcsYear)}</strong></p>
+        <p><span>(s) Per Part:</span> <strong>{props.target === null || props.target === undefined ? '?' : Number(props.target).toFixed(2)}</strong></p>
       </div>
       <DrawerToggle
         clicked={props.clicked}

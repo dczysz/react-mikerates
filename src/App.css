@@ -1,6 +1,8 @@
 :root {
+  --primary: #343765;
   --black: #141525;
   --white: #eeeff6;
+  --gradient: #14152533;
   --time: 0.2s;
   --font: Poppins, sans-serif;
 }
@@ -13,7 +15,6 @@
 }
 
 .App.Light {
-  --primary: #343765;
   --secondary: #dddeee;
   --text: var(--primary);
   --background: var(--white);
@@ -25,7 +26,6 @@
 }
 
 .App.Dark {
-  --primary: #343765;
   --secondary: #343765;
   --text: var(--white);
   --background: var(--black);
@@ -45,10 +45,35 @@
   font-family: var(--font);
 }
 
+.PaneNav {
+  z-index: 1;
+}
+
 .ReactSwipe {
   min-height: calc(100vh - 64px);
+  z-index: 1;
 }
 
 .swipeDiv {
   min-height: calc(100vh - 64px);
 }
+/* TODO: figure out how to do this /*
+/* .swipeDiv:first-child::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 5.75rem;
+  width: 50px;
+  background-color: red;
+  z-index: 1000;
+}
+
+.swipeDiv:last-child::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  height: 5.75rem;
+  width: 50px;
+  background-color: red;
+  z-index: 100;
+} */

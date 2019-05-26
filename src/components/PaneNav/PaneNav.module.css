@@ -1,0 +1,70 @@
+.PaneNav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ReactSwipe {
+  z-index: 1;
+}
+
+.arrow {
+  height: 44px;
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: -1;
+  pointer-events: all;
+}
+
+.line {
+  width: 24px;
+  height: 4px;
+  background-color: var(--text);
+  background-blend-mode: color-dodge;
+}
+
+.left .line {
+  transform-origin: left;
+}
+
+.right .line {
+  transform-origin: right;
+}
+
+.left .top {
+  transform:
+    rotate(45deg)
+    translateX(1px)
+    translateY(50%);
+}
+
+.left .bottom {
+  transform: 
+    rotate(-45deg)
+    translateX(1px);
+}
+
+.right .top {
+  transform:
+    rotate(-45deg)
+    translateX(-1px);
+}
+
+.right .bottom {
+  transform: 
+    rotate(45deg)
+    translateX(-1px);
+}
+
+.disabled {
+  background-color: var(--disabled);
+}

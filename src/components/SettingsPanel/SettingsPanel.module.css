@@ -5,6 +5,7 @@
   height: 100%;
   width: 80vw;
   background-color: var(--primary);
+  background-image: linear-gradient(to bottom, #0000, var(--gradient));
   color: var(--white);
   transition: transform 0.3s;
   z-index: 101;
@@ -19,14 +20,10 @@
 }
 
 .heading {
-  /* display: flex; */
-  justify-content: space-between;
   padding: 1rem;
 }
 
 .SettingsPanel h2 {
-  /* text-align: center; */
-  /* margin: 0 auto 1rem auto; */
   margin: 1rem;
   transition: opacity var(--time);
 }

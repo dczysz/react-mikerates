@@ -10,26 +10,6 @@
   text-transform: capitalize;
 }
 
-.heading::before,
-.heading::after {
-  content: '^';
-  position: absolute;
-}
-
-.heading::before {
-  left: 1rem;
-  transform: 
-    rotate(-90deg)
-    scaleX(2);
-}
-
-.heading::after {
-  right: 1rem;
-  transform: 
-    rotate(90deg)
-    scaleX(2);
-}
-
 .totals {
   margin-top: 1.2rem;
 }

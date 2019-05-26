@@ -6,18 +6,19 @@
   padding: 0.5rem;
   color: var(--white);
   background-color: var(--primary);
-  /* position: fixed; */
-  /* bottom: 0; */
+  background-image: linear-gradient(to bottom, #0000, var(--gradient));
 }
 
 .Target {
-  /* border: 1px solid black;
-  border-right: none;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px; */
+  display: flex;
+  flex-direction: column;
 }
 
 .Target p {
   margin: 0.1rem 0.5rem;
+}
+.Target span {
+  display: inline-block;
+  min-width: 6.5rem;
 }
 

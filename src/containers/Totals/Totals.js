@@ -24,14 +24,16 @@ const totals = (props) => {
           label="PP/Hour"
           val={props.partsPerHour}
           readOnly
-          disabled
+          disabled={props.disabled === 'false' ? false : true}
+          onChange={(event) => props.partsPerHourChanged(event)}
           showDecimals
         />
         <Input
           label="PP/Min"
           val={props.partsPerMin}
           readOnly
-          disabled
+          disabled={props.disabled === 'false' ? false : true}
+          onChange={props.partsPerMinChanged}
           showDecimals
         />
         <Input
@@ -39,7 +41,8 @@ const totals = (props) => {
           label="(s) per part"
           val={props.secPerPart}
           readOnly
-          disabled
+          disabled={props.disabled === 'false' ? false : true}
+          onChange={props.secPerPartChanged}
           showDecimals
         />
       </div>

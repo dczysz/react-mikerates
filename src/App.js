@@ -33,12 +33,22 @@ class App extends Component {
     swipeRefresh: 0,
   }
 
-  componentDidMount() {
-    // Overwrite default panes state with cookie if present
-    const cookiePanes = this.getCookie('panes');
-    if (cookiePanes) this.setState({
-      panes: JSON.parse(cookiePanes),
-    })
+  componentWillMount() {
+    // Overwrite default panes and secPerPart state with cookie if present
+    const cookiePanes = JSON.parse(this.getCookie('panes'));
+    console.log('[App] componentWillMount');
+    if (cookiePanes) {
+      console.log('cookie:', cookiePanes);
+      
+      const cookieSecPerPartStrArr = cookiePanes.map(pane => pane.name);
+      const newSecPerPartState = {};
+      cookieSecPerPartStrArr.forEach(paneName => newSecPerPartState[paneName] = null);
+
+      this.setState({
+        panes: cookiePanes,
+        secPerPart: newSecPerPartState,
+      });
+    } 
   }
 
   getCookie = (cookieName) => {
@@ -121,6 +131,8 @@ class App extends Component {
       panes: newPaneState,
       swipeRefresh: this.state.swipeRefresh + 1,
     });
+
+    this.updatePanesCookie(newPaneState);
   }
 
   updatePanesCookie = (newPaneState) => {

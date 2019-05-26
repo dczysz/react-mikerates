@@ -1,4 +1,4 @@
-.Target {
+.TopBar {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -10,6 +10,14 @@
   /* bottom: 0; */
 }
 
-.Target p {
-  margin: 0 0.5rem;
+.Target {
+  /* border: 1px solid black;
+  border-right: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px; */
 }
+
+.Target p {
+  margin: 0.1rem 0.5rem;
+}
+

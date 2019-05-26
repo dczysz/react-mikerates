@@ -36,10 +36,11 @@ class VolumePane extends Component {
       pcsWeek: e.target.value,
       pcsDay: e.target.value / 5,
     }
-    this.updateTotals(stateChangeObj);
-
+    
     // Update pcsYear in App state for Totals reference
     this.props.updatePcsYear(stateChangeObj.pcsYear);
+    
+    this.updateTotals(stateChangeObj);
   }
 
   pcsDayChangedHandler = (e) => {
@@ -48,10 +49,11 @@ class VolumePane extends Component {
       pcsWeek: e.target.value * 5,
       pcsDay: e.target.value,
     }
-    this.updateTotals(stateChangeObj);
-
+    
     // Update pcsYear in App state for Totals reference
     this.props.updatePcsYear(stateChangeObj.pcsYear);
+
+    this.updateTotals(stateChangeObj);
   }
 
   numShiftsChangedHandler = (e) => {
@@ -84,6 +86,45 @@ class VolumePane extends Component {
 
     // Update secPerPart target in App.js state
     this.props.updateSecPerPartTarget(newState.secPerPart);
+  }
+
+  updatePcs = (newStateChangeObj) => {
+    const newState = {...this.state, ...newStateChangeObj};
+
+    // Check if all required input fields are filled in
+    if (newState.partsPerHour !== 0   && newState.partsPerHour !== '' &&
+        newState.partsPerMin !== 0   && newState.partsPerMin !== '' &&
+        newState.secPerPart !== 0    && newState.secPerPart !== '' &&
+        newState.numShifts !== 0 && newState.numShifts !== '' &&
+        newState.hrsShift !== 0  && newState.hrsShift !== '') {
+          
+          // Calculate totals
+          newState.pcsDay = newState.partsPerHour * 
+            newState.numShifts * newState.hrsShift;
+
+          newState.pcsWeek = newState.partsPerMin * 5;
+          newState.pcsYear = newState.partsPerMin * 50 * 5;
+    }
+
+    // Update state
+    this.setState(newState);
+
+    // Update pcsYear in App state for Totals reference
+    this.props.updatePcsYear(newState.pcsYear);
+
+    // Update secPerPart target in App.js state
+    this.props.updateSecPerPartTarget(newState.secPerPart);
+  }
+
+  partsPerHourChanged = (e) => {
+    console.log('pph changed')
+    const stateChangeObj = {
+      partsPerHour: e.target.value,
+      partsPerMin: e.target.value / 60,
+      secPerPart: e.target.value / 60 / 60,
+    };
+
+    this.updatePcs(stateChangeObj);
   }
 
 
@@ -127,6 +168,10 @@ class VolumePane extends Component {
           partsPerMin={this.state.partsPerMin}
           secPerPart={this.state.secPerPart}
           secPerPartTarget={this.props.secPerPartTarget}
+          partsPerHourChanged={this.partsPerHourChanged}
+          partsPerMinChanged={this.partsPerMinChanged}
+          secPerPartChanged={this.secPerPartChanged}
+          disabled="false"
         />
       </div>
     );

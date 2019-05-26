@@ -11,12 +11,12 @@ const topBar = (props) => {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
   }
-
+console.log(props.target)
   return (
-    <div className={classes.Target}>
-      <div>
+    <div className={classes.TopBar}>
+      <div className={classes.Target}>
         <p>Pcs. Year: <strong>{props.pcsYear === null ? '?' : addCommas(props.pcsYear)}</strong></p>
-        <p>(s) Per Part: <strong>{Number(props.target) === 0 ? '?' : Number(props.target).toFixed(2)}</strong></p>
+        <p>(s) Per Part: <strong>{props.target === null || props.target === undefined ? '?' : Number(props.target).toFixed(2)}</strong></p>
       </div>
       <DrawerToggle
         clicked={props.clicked}

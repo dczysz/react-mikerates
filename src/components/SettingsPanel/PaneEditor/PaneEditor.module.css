@@ -1,7 +1,8 @@
 .PaneEditor {
-  font-size: 0.8rem;
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.4rem 1rem;
   color: var(--white);
   opacity: 0.8;
@@ -9,7 +10,7 @@
 
 .PaneEditor.editing {
   opacity: 1;
-  background-color: var(--disabled);
+  background-color: var(--primary-dark);
 }
 
 .PaneEditor.editing input {
@@ -29,6 +30,7 @@
   color: inherit;
   width: 40%;
   margin: 0 0.2rem;
+  font-size: 0.9rem;
 }
 
 .PaneEditor input:focus,
@@ -40,20 +42,19 @@
   border: none;
   background: var(--black);
   color: inherit;
-  width: 10%;
-  /* border: 1px solid var(--gray); */
-  /* border-radius: 3px; */
+  width: auto;
+  border-radius: 2px;
   margin: 0 0.1rem;
+  padding: 0.3rem 0.5rem;
 }
 
 .PaneEditor .name {
-  font-weight: bold;
   width: 20vw;
   text-transform: capitalize;
 }
 
 .PaneEditor .numOfLabel {
-  
+  font-weight: bold;
 }
 
 .PaneEditor .numOfInput {

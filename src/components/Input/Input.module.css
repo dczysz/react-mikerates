@@ -25,6 +25,7 @@
   color: inherit;
   font-weight: bold;
   font-family: inherit;
+  border-radius: 4px;
 }
 
 .inputField:focus,

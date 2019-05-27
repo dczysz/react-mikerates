@@ -36,6 +36,7 @@
   width: 24px;
   height: 4px;
   background-color: var(--text);
+  border-radius: 2px;
 }
 
 .left .line {

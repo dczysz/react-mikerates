@@ -103,14 +103,15 @@ class PaneEditor extends Component {
           // Edit/Done Editing button
           className={this.state.editing ? [classes.btnEdit, classes.btnDone].join(' ') : classes.btnEdit}
           onClick={this.toggleEditingHandler}
-          onBlur={() => console.log('blur')}
         >{addButtonIcon}</button>
 
-        <button
-          // Delete button
-          onClick={() => this.props.deleteClicked(this.props.id)}
-          className={classes.btnRemove}
-        ><i className="far fa-trash-alt"></i></button>
+        {this.props.new ? null : (
+          <button
+            // Delete button
+            onClick={() => this.props.deleteClicked(this.props.id)}
+            className={classes.btnRemove}
+          ><i className="far fa-trash-alt"></i></button>
+        )}
       </div>
     );
   }

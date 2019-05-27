@@ -4,6 +4,9 @@
   box-sizing: border-box;
   cursor: pointer;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .topLine,
@@ -13,10 +16,11 @@
   background-color: var(--white);
   transition: all var(--time);
   transform-origin: left;
+  border-radius: 2px;
 }
 
 .topLine {
-  margin-bottom: 12.75px;
+  margin-bottom: 13px;
 }
 
 .topClosed {

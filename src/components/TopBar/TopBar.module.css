@@ -1,9 +1,10 @@
 .TopBar {
   width: 100%;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0 1rem;
   color: var(--white);
   background-color: var(--primary);
   background-image: linear-gradient(to bottom, #0000, var(--gradient));
@@ -12,10 +13,12 @@
 .Target {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .Target p {
-  margin: 0.1rem 0.5rem;
+  margin: 0;
 }
 .Target span {
   display: inline-block;

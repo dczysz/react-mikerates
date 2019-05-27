@@ -1,10 +1,11 @@
 :root {
   --primary: #424680;
+  --primary-dark: #2c2e53;
   --black: #191a2e;
   --white: #eeeff6;
   --gradient: #14152533;
   --time: 0.2s;
-  --font: Poppins, sans-serif;
+  --font: 'Source Sans Pro', Poppins, sans-serif;
 }
 
 *, *::before, *::after {
@@ -22,7 +23,7 @@
   --disabled: #abaed4;
   --success: #06f9c8;
   --danger: #ff1a62;
-  --ok: #208cff;
+  --ok: #0068d8;
 }
 
 .App.Dark {
@@ -30,7 +31,7 @@
   --text: var(--white);
   --background: var(--black);
   --gray: #666;
-  --disabled: #2c2e53;
+  --disabled: var(--primary-dark);
   --success: #06f9c8;
   --danger: #ff1a62;
   --ok: #5ba9ff;

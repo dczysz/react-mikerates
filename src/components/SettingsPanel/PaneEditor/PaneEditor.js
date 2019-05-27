@@ -103,7 +103,6 @@ class PaneEditor extends Component {
         <form onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"
-            tabIndex="-1"
             className={classes.name}
             defaultValue={this.props.new ? '' : this.props.name}
             onChange={(e) => this.nameChangedHandler(e.target.value)}
@@ -114,7 +113,6 @@ class PaneEditor extends Component {
             <span>{this.props.numOfLabel ? '# of: ' : ''}</span>
             <input
               type="text"
-              tabIndex="-1"
               className={classes.numOfInput}
               defaultValue={this.props.new ? '' : this.props.numOfLabel}
               onChange={(e) => this.numOfChangedHandler(e.target.value)}
@@ -123,22 +121,24 @@ class PaneEditor extends Component {
             />
           </div>
 
-          <button
-            // Edit/Done Editing button
-            className={this.state.editing ? [classes.btnEdit, classes.btnDone].join(' ') : classes.btnEdit}
-            onClick={this.toggleEditingHandler}
-            type="submit"
-            tabIndex="-1"
-          >{addButtonIcon}</button>
-
-          {this.props.new ? null : (
+          <div>
             <button
-              // Delete button
-              className={classes.btnRemove}
-              onClick={() => this.props.deleteClicked(this.props.id)}
+              // Edit/Done Editing button
+              className={this.state.editing ? [classes.btnEdit, classes.btnDone].join(' ') : classes.btnEdit}
+              onClick={this.toggleEditingHandler}
+              type="submit"
               tabIndex="-1"
-            ><i className="far fa-trash-alt"></i></button>
-          )}
+            >{addButtonIcon}</button>
+
+            {this.props.new ? null : (
+              <button
+                // Delete button
+                className={classes.btnRemove}
+                onClick={() => this.props.deleteClicked(this.props.id)}
+                tabIndex="-1"
+              ><i className="far fa-trash-alt"></i></button>
+            )}
+          </div>
         </form>
       </div>
     );

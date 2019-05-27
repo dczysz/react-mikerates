@@ -50,11 +50,18 @@
   border-radius: 2px;
   margin: 0 0.1rem;
   padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+
+.PaneEditor .name,
+.PaneEditor .numOfInput {
+  width: 20vw;
 }
 
 .PaneEditor .name {
-  width: 20vw;
   text-transform: capitalize;
+  max-width: 100px;
+  font-weight: inherit;
 }
 
 .PaneEditor .numOfLabel {
@@ -62,8 +69,8 @@
 }
 
 .PaneEditor .numOfInput {
-  width: 50%;
   text-transform: capitalize;
+  max-width: 80px;
 }
 
 .PaneEditor .btnDone {
@@ -72,4 +79,16 @@
 
 .PaneEditor .btnRemove {
   color: var(--danger);
+}
+
+@media (min-width: 800px) {
+  .PaneEditor {
+    font-size: 1.1rem;
+  }
+  .PaneEditor input {
+    font-size: inherit;
+  }
+  .PaneEditor .numOfInput {
+    max-width: 100px;
+  }
 }

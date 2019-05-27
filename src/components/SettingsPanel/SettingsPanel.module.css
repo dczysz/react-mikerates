@@ -44,6 +44,7 @@
   border: 1px solid var(--white);
   margin-right: 3rem;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .darkToggle.dark {

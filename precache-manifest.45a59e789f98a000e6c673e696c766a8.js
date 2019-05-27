@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5ae6bf4208a33517c5a828ad14e3f2d0",
+    "revision": "7f504980c901e6d471ac0a5e56640a45",
     "url": "/react-mikerates/index.html"
   },
   {

@@ -37,10 +37,11 @@ class App extends Component {
   }
 
   componentWillMount() {
-    // Overwrite default panes and secPerPart state with cookie if present
+    // Overwrite default panes, secPerPart, darkMode state with cookie if present
     const cookie = this.getCookie('panes');
+    const darkEnabled = this.getCookie('darkModeEnabled');
 
-    if (cookie) {
+    if (cookie && darkEnabled) {
       const cookiePanes = JSON.parse(cookie);
       
       const cookieSecPerPartStrArr = cookiePanes.map(pane => pane.name);
@@ -56,6 +57,7 @@ class App extends Component {
         panes: cookiePanes,
         secPerPart: newSecPerPartState,
         nextId: newNextId,
+        darkMode: darkEnabled,
       });
     } 
   }
@@ -132,9 +134,6 @@ class App extends Component {
       return pane.id === editiedPaneObj.id ? editiedPaneObj : {...pane};
     });
 
-    // Update pane
-    // newPaneState[editiedPaneObj.name] = editiedPaneObj;
-
     // Update state
     this.setState({
       panes: newPaneState,
@@ -151,13 +150,20 @@ class App extends Component {
     document.cookie = `panes=${JSON.stringify(newPaneState)}; expires=${date.toUTCString()}`;
   }
 
+  updateDarkModeCookie = (isEnabled) => {
+    let date = new Date();
+    date.setFullYear(date.getFullYear() + 1);
+
+    document.cookie = `darkModeEnabled=${isEnabled}; expires=${date.toUTCString()}`;
+  }
+
   darkToggleClickedHandler = () => {
+    this.updateDarkModeCookie(!this.state.darkMode);
     this.setState({ darkMode: !this.state.darkMode });
   }
 
   render() {
     let reactSwipeEl;
-    //! ReactSwipe must have divs as children, then components
 
     // Set up other panes (besides volume)
     const ratePanes = this.state.panes.map((pane, index) => {
@@ -190,10 +196,12 @@ class App extends Component {
           pos={() => reactSwipeEl.getPos()}
           // len={this.state.panes.length + 1}
         />
+
         
         <ReactSwipe
+          //! ReactSwipe must have divs as children, then components
           swipeOptions={{ continuous: false }}
-          className="ReactSwipe"
+          className={this.state.showSettings ? "ReactSwipe blur" : "ReactSwipe"}
           ref={el => (reactSwipeEl = el)}
           key={this.state.swipeRefresh} // Only refreshes correctly on key change
         >

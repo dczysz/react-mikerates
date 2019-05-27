@@ -7,4 +7,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--font-size);
+  /* Disable pull-to-refresh, allow glow effects */
+  overscroll-behavior-y: contain;
 }

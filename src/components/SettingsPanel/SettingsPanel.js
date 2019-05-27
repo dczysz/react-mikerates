@@ -5,9 +5,17 @@ import PaneEditor from './PaneEditor/PaneEditor';
 
 class SettingsPanel extends Component {
 
+  state = {
+    allowEditing: true,
+  }
+
   componentWillUpdate() {
     console.log('[SettingsPanel] will update');
     console.log(this.props.panes)
+  }
+
+  setAllowEditingHandler = (bool) => {
+    this.setState({ allowEditing: bool });
   }
 
   render() {
@@ -20,6 +28,8 @@ class SettingsPanel extends Component {
           numOfLabel={paneObj.numOfLabel}
           deleteClicked={this.props.deleteClicked}
           editPane={this.props.editPane}
+          allowEditing={this.state.allowEditing}
+          setAllowEditing={this.setAllowEditingHandler}
         />
       );
     });
@@ -50,6 +60,8 @@ class SettingsPanel extends Component {
           deleteClicked={this.props.deleteClicked}
           addPane={this.props.addPane}
           new
+          allowEditing={this.state.allowEditing}
+          setAllowEditing={this.setAllowEditingHandler}
         />
       </div>
     );

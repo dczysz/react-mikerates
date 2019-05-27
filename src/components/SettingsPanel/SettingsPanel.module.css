@@ -4,6 +4,7 @@
   right: 0;
   height: 100%;
   width: 80vw;
+  max-width: 500px;
   background-color: var(--primary);
   background-image: linear-gradient(to bottom, #0000, var(--gradient));
   color: var(--white);

@@ -35,6 +35,7 @@ class Input extends Component {
         <input
           className={[classes.inputField, classes[this.props.classes]].join(' ')}
           type="number"
+          tabIndex="-1"
           value={value}
           onChange={this.props.changed}
           readOnly={this.props.readOnly}

@@ -1,6 +1,8 @@
 .Input {
   position: relative;
   width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +23,7 @@
   padding: 0.5rem;
   outline: none;
   width: 50vw;
+  max-width: 250px;
   background-color: var(--secondary);
   color: inherit;
   font-weight: bold;
@@ -49,4 +52,16 @@
 .ok {
   color: var(--ok);
   border-color: var(--ok);
+}
+
+@media (min-width: 800px) {
+  .Input {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .inputField {
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
 }

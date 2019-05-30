@@ -108,11 +108,17 @@ class PaneEditor extends Component {
             onChange={(e) => this.nameChangedHandler(e.target.value)}
             disabled={!this.state.editing}
             ref={el => this.nameInput = el}
+            aria-label="Operation"
           />
-          <div className={classes.numOfLabel}>
-            <span>{this.props.numOfLabel ? '# of: ' : ''}</span>
+          <div className={classes.numOf}>
+            <label
+              htmlFor="numOfInput"
+            >
+              {this.props.numOfLabel ? '# of: ' : ''}
+            </label>
             <input
               type="text"
+              id="numOfInput"
               className={classes.numOfInput}
               defaultValue={this.props.new ? '' : this.props.numOfLabel}
               onChange={(e) => this.numOfChangedHandler(e.target.value)}
@@ -128,6 +134,7 @@ class PaneEditor extends Component {
               onClick={this.toggleEditingHandler}
               type="submit"
               tabIndex="-1"
+              aria-label="Edit/Done Editing"
             >{addButtonIcon}</button>
 
             {this.props.new ? null : (
@@ -136,6 +143,7 @@ class PaneEditor extends Component {
                 className={classes.btnRemove}
                 onClick={() => this.props.deleteClicked(this.props.id)}
                 tabIndex="-1"
+                aria-label="Delete"
               ><i className="far fa-trash-alt"></i></button>
             )}
           </div>

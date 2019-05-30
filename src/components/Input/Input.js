@@ -31,8 +31,14 @@ class Input extends Component {
 
     return (
       <div className={classes.Input}>
-        <label className={classes.label}>{this.props.label}</label>
+        <label
+          htmlFor={this.props.label}
+          className={classes.label}
+        >
+          {this.props.label}
+        </label>
         <input
+          id={this.props.label}
           className={[classes.inputField, classes[this.props.classes]].join(' ')}
           type="number"
           tabIndex="-1"

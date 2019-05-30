@@ -19,7 +19,7 @@ class SettingsPanel extends Component {
   }
 
   render() {
-    const panesComps = this.props.panes.map(paneObj => {
+    const paneEditors = this.props.panes.map(paneObj => {
       return (
         <PaneEditor
           key={paneObj.id}
@@ -48,12 +48,13 @@ class SettingsPanel extends Component {
             className={[classes.darkToggle, this.props.darkEnabled ?classes.dark : classes.light].join(' ')}
             onClick={this.props.darkToggleClicked}
             tabIndex="-1"
+            aria-label="Toggle dark mode"
           >
             <i className="far fa-lightbulb"></i>
           </button>
         </div>
 
-        {panesComps}
+        {paneEditors}
 
         <PaneEditor
           key="newPanel"

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-mikerates/static/css/main.a99543bd.chunk.css",
+    "main.css": "/react-mikerates/static/css/main.3e00e539.chunk.css",
     "main.js": "/react-mikerates/static/js/main.6d300163.chunk.js",
     "main.js.map": "/react-mikerates/static/js/main.6d300163.chunk.js.map",
     "runtime~main.js": "/react-mikerates/static/js/runtime~main.9b8a7bee.js",
@@ -8,8 +8,8 @@
     "static/js/2.43ef3a07.chunk.js": "/react-mikerates/static/js/2.43ef3a07.chunk.js",
     "static/js/2.43ef3a07.chunk.js.map": "/react-mikerates/static/js/2.43ef3a07.chunk.js.map",
     "index.html": "/react-mikerates/index.html",
-    "precache-manifest.6c89853e2b70a8591527b6f96c16ae9b.js": "/react-mikerates/precache-manifest.6c89853e2b70a8591527b6f96c16ae9b.js",
+    "precache-manifest.85a32937faff232306582890b57fe837.js": "/react-mikerates/precache-manifest.85a32937faff232306582890b57fe837.js",
     "service-worker.js": "/react-mikerates/service-worker.js",
-    "static/css/main.a99543bd.chunk.css.map": "/react-mikerates/static/css/main.a99543bd.chunk.css.map"
+    "static/css/main.3e00e539.chunk.css.map": "/react-mikerates/static/css/main.3e00e539.chunk.css.map"
   }
 }

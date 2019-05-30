@@ -5,7 +5,7 @@
   --white: #eeeff6;
   --gradient: #14152533;
   --time: 0.2s;
-  --font: 'Source Sans Pro', Poppins, sans-serif;
+  --font: 'Source Sans Pro', Arial, sans-serif;
 }
 
 *, *::before, *::after {

@@ -8,27 +8,34 @@
   flex-direction: column;
   justify-content: center;
 }
-
 .topLine,
+.middleLine,
 .bottomLine {
-  width: 24px;
+  width: 32px;
   height: 4px;
   background-color: var(--white);
   transition: all var(--time);
-  transform-origin: left;
+  transform-origin: center;
   border-radius: 2px;
 }
-
-.topLine {
-  margin-bottom: 13px;
+.topLine,
+.middleBottom {
+  margin-bottom: 6px;
 }
-
-.topClosed {
-  transform:
-    rotate(45deg);
+.middleTop {
+  margin-bottom: -4px;
 }
-
+.topClosed,
+.middleBottom.middleClosed {
+  margin-bottom: -4px;
+}
+.topClosed,
 .bottomClosed {
-  transform:
-    rotate(-45deg);
+  opacity: 0;
+}
+.middleTop.middleClosed {
+  transform: rotate(45deg);
+}
+.middleBottom.middleClosed {
+  transform: rotate(-45deg);
 }

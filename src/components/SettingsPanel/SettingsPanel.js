@@ -9,9 +9,9 @@ class SettingsPanel extends Component {
     allowEditing: true,
   }
 
-  componentWillUpdate() {
-    console.log('[SettingsPanel] will update');
-    console.log(this.props.panes)
+  // Only update if panel is to be shown or showing
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.show || this.props.show;
   }
 
   setAllowEditingHandler = (bool) => {

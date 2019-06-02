@@ -17,8 +17,8 @@ class VolumePane extends Component {
     secPerPart: '',
   }
 
-  //TODO: Make modular, use array and get indexes to make correct calcs?
   pcsYearChangedHandler = (e) => {
+    console.log('pcsYearChangedHandler');
     const stateChangeObj = {
       pcsYear: e.target.value,
       pcsWeek: e.target.value / 50,
@@ -31,6 +31,7 @@ class VolumePane extends Component {
   }
 
   pcsWeekChangedHandler = (e) => {
+    console.log('pcsWeekChangedHandler');
     const stateChangeObj = {
       pcsYear: e.target.value * 50,
       pcsWeek: e.target.value,
@@ -44,6 +45,7 @@ class VolumePane extends Component {
   }
 
   pcsDayChangedHandler = (e) => {
+    console.log('pcsDayChangedHandler');
     const stateChangeObj = {
       pcsYear: e.target.value * 50 * 5,
       pcsWeek: e.target.value * 5,
@@ -57,7 +59,15 @@ class VolumePane extends Component {
   }
 
   numShiftsChangedHandler = (e) => {
-    this.updateTotals({ numShifts: e.target.value });
+    if (this.state.pcsYear !== 0   && this.state.pcsYear !== '' &&
+        this.state.pcsWeek !== 0   && this.state.pcsWeek !== '' &&
+        this.state.pcsDay !== 0    && this.state.pcsDay !== '') {
+          this.updateTotals({ numShifts: e.target.value });
+    } else if (this.state.partsPerHour !== 0   && this.state.partsPerHour !== '' &&
+               this.state.partsPerMin !== 0   && this.state.partsPerMin !== '' &&
+               this.state.secPerPart !== 0    && this.state.secPerPart !== '') {
+                  this.updatePcs({ numShifts: e.target.value });
+    }
   }
 
   hrsShiftChangedHandler = (e) => {
@@ -65,6 +75,7 @@ class VolumePane extends Component {
   }
 
   updateTotals = (newStateChangeObj) => {
+    console.log('updateTotals');
     const newState = {...this.state, ...newStateChangeObj};
 
     // Check if all required input fields are filled in
@@ -89,6 +100,7 @@ class VolumePane extends Component {
   }
 
   updatePcs = (newStateChangeObj) => {
+    console.log('updatePcs');
     const newState = {...this.state, ...newStateChangeObj};
 
     // Check if all required input fields are filled in
@@ -99,11 +111,13 @@ class VolumePane extends Component {
         newState.hrsShift !== 0  && newState.hrsShift !== '') {
           
           // Calculate totals
-          newState.pcsDay = newState.partsPerHour * 
+          const pcsDay = newState.partsPerHour * 
             newState.numShifts * newState.hrsShift;
 
-          newState.pcsWeek = newState.partsPerMin * 5;
-          newState.pcsYear = newState.partsPerMin * 50 * 5;
+          newState.pcsDay = pcsDay;
+
+          newState.pcsWeek = pcsDay * 5;
+          newState.pcsYear = pcsDay * 50 * 5;
     }
 
     // Update state
@@ -116,12 +130,34 @@ class VolumePane extends Component {
     this.props.updateSecPerPartTarget(newState.secPerPart);
   }
 
-  partsPerHourChanged = (e) => {
-    console.log('pph changed')
+  partsPerHourChangedHandler = (e) => {
+    console.log('partsPerHourChanged')
     const stateChangeObj = {
       partsPerHour: e.target.value,
       partsPerMin: e.target.value / 60,
-      secPerPart: e.target.value / 60 / 60,
+      secPerPart: 60 / e.target.value * 60,
+    };
+
+    this.updatePcs(stateChangeObj);
+  }
+
+  partsPerMinChangedHandler = (e) => {
+    console.log('partsPerMinChanged')
+    const stateChangeObj = {
+      partsPerHour: e.target.value * 60,
+      partsPerMin: e.target.value,
+      secPerPart: 60 / e.target.value,
+    };
+
+    this.updatePcs(stateChangeObj);
+  }
+
+  secPerPartChangedHandler = (e) => {
+    console.log('secPerPartChanged')
+    const stateChangeObj = {
+      partsPerHour: 60 / e.target.value * 60,
+      partsPerMin: 60 / e.target.value,
+      secPerPart: e.target.value,
     };
 
     this.updatePcs(stateChangeObj);
@@ -168,10 +204,10 @@ class VolumePane extends Component {
           partsPerMin={this.state.partsPerMin}
           secPerPart={this.state.secPerPart}
           secPerPartTarget={this.props.secPerPartTarget}
-          partsPerHourChanged={this.partsPerHourChanged}
-          partsPerMinChanged={this.partsPerMinChanged}
-          secPerPartChanged={this.secPerPartChanged}
-          disabled="true" // Switched off for now
+          partsPerHourChanged={this.partsPerHourChangedHandler}
+          partsPerMinChanged={this.partsPerMinChangedHandler}
+          secPerPartChanged={this.secPerPartChangedHandler}
+          disabled="false" // Switched off for now
         />
       </div>
     );

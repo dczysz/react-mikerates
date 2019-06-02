@@ -6,7 +6,8 @@ import classes from './Totals.module.css';
 const totals = (props) => {
   const secPerPartTarget = props.secPerPartTarget;
   const secPerPartClassesArr = [];
-
+  
+  // Condidtionally apply style to secPerPart input depending on target
   if (props.secPerPart !== '') {
     if (props.secPerPart < secPerPartTarget) 
       secPerPartClassesArr.push('success');
@@ -17,33 +18,26 @@ const totals = (props) => {
   }
   const secPerPartClasses = secPerPartClassesArr.join(' ');
 
-    // Condidtionally apply style to secPerPart input depending on target
     return (
       <div className={classes.Totals}>
         <Input
           label="PP/Hour"
           val={props.partsPerHour}
-          readOnly
           disabled={props.disabled === 'false' ? false : true}
-          onChange={(event) => props.partsPerHourChanged(event)}
-          showDecimals
+          changed={(event) => props.partsPerHourChanged(event)}
         />
         <Input
           label="PP/Min"
           val={props.partsPerMin}
-          readOnly
           disabled={props.disabled === 'false' ? false : true}
-          onChange={props.partsPerMinChanged}
-          showDecimals
+          changed={props.partsPerMinChanged}
         />
         <Input
           classes={secPerPartClasses}
           label="(s) per part"
           val={props.secPerPart}
-          readOnly
           disabled={props.disabled === 'false' ? false : true}
-          onChange={props.secPerPartChanged}
-          showDecimals
+          changed={props.secPerPartChanged}
         />
       </div>
     );

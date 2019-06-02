@@ -8,24 +8,22 @@ class Input extends Component {
     focused: false,
   }
 
-  handleFocus = (event, focused) => {
-    this.setState({ focused: focused });
-    if (focused) {
-      //TODO: select text
-    }
+  handleFocus = (event) => {
+    console.log('focus')
+    this.setState({ focused: true });
   }
 
   render() {
-    // Dont add decimals to integer inputs
+    // Round when not focused
     let value = this.props.val;
 
     if (value === 0 || value === '') {
       value = '';
-    } else if (this.props.showDecimals) {
-      value = Number(this.props.val);
-      // Only set toFixed if not focused
-      if (!this.state.focused) {
-        value = value.toFixed(2);
+    }
+    else if (!this.state.focused) {
+      // Check if needs to round
+      if (Number(value).toFixed(2) != Number(value)) {
+        value = Number(value).toFixed(2);
       }
     }
 
@@ -46,8 +44,9 @@ class Input extends Component {
           onChange={this.props.changed}
           readOnly={this.props.readOnly}
           disabled={this.props.disabled}
-          onFocus={(event) => this.handleFocus(event, true)}
-          onBlur={(event) => this.handleFocus(event, false)}
+          onFocus={(e) => this.handleFocus(e)}
+          onBlur={(e) => this.setState({ focused: false })}
+          onClick={(e) => e.target.select()} // Only works in Chrome, not FF
         ></input>
       </div>
     );

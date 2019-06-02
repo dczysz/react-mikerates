@@ -42,11 +42,11 @@ class Input extends Component {
           tabIndex="-1"
           value={value}
           onChange={this.props.changed}
-          readOnly={this.props.readOnly}
           disabled={this.props.disabled}
           onFocus={(e) => this.handleFocus(e)}
           onBlur={(e) => this.setState({ focused: false })}
           onClick={(e) => e.target.select()} // Only works in Chrome, not FF
+          step="any"
         ></input>
       </div>
     );

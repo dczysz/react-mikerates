@@ -58,23 +58,3 @@
 .swipeDiv {
   min-height: calc(100vh - 64px);
 }
-/* TODO: figure out how to do this /*
-/* .swipeDiv:first-child::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  height: 5.75rem;
-  width: 50px;
-  background-color: red;
-  z-index: 1000;
-}
-
-.swipeDiv:last-child::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  height: 5.75rem;
-  width: 50px;
-  background-color: red;
-  z-index: 100;
-} */

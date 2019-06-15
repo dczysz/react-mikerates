@@ -31,7 +31,7 @@ class App extends Component {
     pcsYear: null,
     showSettings: false,
     nextId: 3,
-    swipeRefresh: 0,
+    swipeRefresh: 0, // Increment to force react-swipe to update
     darkMode: true,
     position: 0,
   }
@@ -193,14 +193,21 @@ class App extends Component {
           className="PaneNav"
           prev={() => reactSwipeEl.prev()}
           next={() => reactSwipeEl.next()}
-          pos={() => reactSwipeEl.getPos()}
+          pos={null}
           // len={this.state.panes.length + 1}
         />
 
         
         <ReactSwipe
           //! ReactSwipe must have divs as children, then components
-          swipeOptions={{ continuous: false }}
+          swipeOptions={{
+            continuous: false,
+            //TODO: Setting state prevents page changes...figure out how to send to PaneNav
+            callback: (pageIndex) => {
+              // this.setState({ position: pageIndex });
+              console.log(pageIndex)
+            }
+          }}
           className={this.state.showSettings ? "ReactSwipe blur" : "ReactSwipe"}
           ref={el => (reactSwipeEl = el)}
           key={this.state.swipeRefresh} // Only refreshes correctly on key change
